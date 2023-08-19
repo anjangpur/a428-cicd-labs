@@ -16,6 +16,11 @@
                     sh './jenkins/scripts/test.sh'
                 }
             }
+            stage('Manual Approval'){
+                steps {
+                    input message: 'Lanjutkan Ke Tahap Deploy?'
+                }
+            }
             stage('Deploy') { 
                 steps {
                     sh './jenkins/scripts/deliver.sh' 
